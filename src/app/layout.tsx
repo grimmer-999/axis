@@ -132,7 +132,7 @@ const jsonLd = {
   "@context": "https://schema.org",
   "@type": "WebApplication",
   name: "AXIS — OSINT Toolkit & Intelligence Platform",
-  alternateName: ["AXIS", "AXISAI", "AXIS OSINT"],
+  alternateName: ["AXIS", "AXIS AI", "AXIS OSINT"],
   url: SITE_URL,
   description: SITE_DESCRIPTION,
   applicationCategory: "SecurityApplication",
