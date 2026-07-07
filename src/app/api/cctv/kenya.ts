@@ -1,135 +1,100 @@
 import type { CctvCamera } from './types';
 
-const KENYA_MANUAL: CctvCamera[] = [
-  // Nairobi — CBD & Major Arteries
+const KENYA_LIVE_CAMERAS: CctvCamera[] = [
+  // ─── YouTube Live Streams ───
   {
-    id: 'ke-nairobi-uhuru-highway',
-    lat: -1.2921, lng: 36.8219,
-    name: 'Uhuru Highway (CBD)', city: 'Nairobi', country: 'Kenya',
-    feed_url: 'https://namata.go.ke/live-traffic-map/',
-    external_url: 'https://namata.go.ke/live-traffic-map/',
-    source: 'NaMATA / KeNHA',
+    id: 'ke-maasai-mara-bushtops',
+    lat: -1.3167, lng: 35.0167,
+    name: 'Mara Bushtops Salt Lick (Maasai Mara)', city: 'Maasai Mara', country: 'Kenya',
+    stream_url: 'https://www.youtube.com/embed/xXZqU5vnEug?autoplay=1&mute=1',
+    stream_type: 'youtube',
+    external_url: 'https://www.youtube.com/live/xXZqU5vnEug',
+    source: 'Mara Bushtops / YouTube',
   },
   {
-    id: 'ke-nairobi-thika-superhighway',
-    lat: -1.2195, lng: 36.8880,
-    name: 'Thika Superhighway (Safari Park)', city: 'Nairobi', country: 'Kenya',
-    feed_url: 'https://namata.go.ke/live-traffic-map/',
-    external_url: 'https://namata.go.ke/live-traffic-map/',
-    source: 'NaMATA / KeNHA',
-  },
-  {
-    id: 'ke-nairobi-mombasa-road',
-    lat: -1.3236, lng: 36.8531,
-    name: 'Mombasa Road (Airport Approach)', city: 'Nairobi', country: 'Kenya',
-    feed_url: 'https://namata.go.ke/live-traffic-map/',
-    external_url: 'https://namata.go.ke/live-traffic-map/',
-    source: 'NaMATA / KeNHA',
-  },
-  {
-    id: 'ke-nairobi-expressway-mlolongo',
-    lat: -1.3984, lng: 36.9335,
-    name: 'Nairobi Expressway (Mlolongo Toll)', city: 'Nairobi', country: 'Kenya',
-    stream_url: 'https://trafficvision.live/blog/kenya-traffic-cameras',
-    stream_type: 'hls',
-    external_url: 'https://trafficvision.live/blog/kenya-traffic-cameras',
-    source: 'TrafficVision / Moja Expressway',
-  },
-  {
-    id: 'ke-nairobi-waiyaki-way',
-    lat: -1.2640, lng: 36.7714,
-    name: 'Waiyaki Way (Westlands)', city: 'Nairobi', country: 'Kenya',
-    feed_url: 'https://www.waze.com/live-map',
-    external_url: 'https://www.waze.com/live-map',
-    source: 'Waze / Community',
-  },
-  {
-    id: 'ke-nairobi-ngong-road',
-    lat: -1.2984, lng: 36.7864,
-    name: 'Ngong Road', city: 'Nairobi', country: 'Kenya',
-    feed_url: 'https://www.tomtom.com/traffic-index/city/nairobi',
-    external_url: 'https://www.tomtom.com/traffic-index/city/nairobi',
-    source: 'TomTom',
-  },
-  {
-    id: 'ke-nairobi-jogoo-road',
-    lat: -1.2921, lng: 36.8714,
-    name: 'Jogoo Road (CBD Access)', city: 'Nairobi', country: 'Kenya',
-    feed_url: 'https://trafficvision.live/blog/kenya-traffic-cameras',
-    external_url: 'https://trafficvision.live/blog/kenya-traffic-cameras',
-    source: 'TrafficVision',
-  },
-  {
-    id: 'ke-nairobi-southern-bypass',
-    lat: -1.3567, lng: 36.7823,
-    name: 'Southern Bypass (Weighbridge)', city: 'Nairobi', country: 'Kenya',
-    feed_url: 'https://trafficvision.live/blog/kenya-traffic-cameras',
-    external_url: 'https://trafficvision.live/blog/kenya-traffic-cameras',
-    source: 'TrafficVision',
-  },
-  {
-    id: 'ke-nairobi-northern-bypass',
-    lat: -1.2083, lng: 36.8236,
-    name: 'Northern Bypass', city: 'Nairobi', country: 'Kenya',
-    feed_url: 'https://namata.go.ke/live-traffic-map/',
-    external_url: 'https://namata.go.ke/live-traffic-map/',
-    source: 'NaMATA / KeNHA',
+    id: 'ke-ol-donyo-lodge',
+    lat: -2.5025, lng: 37.7519,
+    name: 'ol Donyo Lodge Wildlife Cam (Chyulu Hills)', city: 'Loitokitok', country: 'Kenya',
+    stream_url: 'https://www.youtube.com/embed/XsOU8JnEpNM?autoplay=1&mute=1',
+    stream_type: 'youtube',
+    external_url: 'https://www.youtube.com/live/XsOU8JnEpNM',
+    source: 'ol Donyo Lodge / Great Plains Conservation / YouTube',
   },
 
-  // Mombasa — Coast & Port
+  // ─── SkylineWebcams — Direct image feeds ───
   {
-    id: 'ke-mombasa-port-road',
-    lat: -4.0435, lng: 39.6682,
-    name: 'Mombasa Port Road', city: 'Mombasa', country: 'Kenya',
-    feed_url: 'https://trafficvision.live/blog/kenya-traffic-cameras',
-    external_url: 'https://trafficvision.live/blog/kenya-traffic-cameras',
-    source: 'TrafficVision / KeNHA',
+    id: 'ke-tsavo-east-national-park',
+    lat: -3.4000, lng: 38.5500,
+    name: 'Tsavo East National Park (Voi)', city: 'Voi', country: 'Kenya',
+    feed_url: 'https://www.skylinewebcams.com/en/webcam/kenya/taita-taveta-county/voi/tsavo-east-national-park.jpg',
+    external_url: 'https://www.skylinewebcams.com/en/webcam/kenya/taita-taveta-county/voi/tsavo-east-national-park.html',
+    source: 'SkylineWebcams',
   },
   {
-    id: 'ke-mombasa-nyali-bridge',
-    lat: -4.0435, lng: 39.6682,
-    name: 'Nyali Bridge', city: 'Mombasa', country: 'Kenya',
-    feed_url: 'https://trafficvision.live/blog/kenya-traffic-cameras',
-    external_url: 'https://trafficvision.live/blog/kenya-traffic-cameras',
-    source: 'TrafficVision',
+    id: 'ke-diani-beach',
+    lat: -4.2800, lng: 39.5800,
+    name: 'Diani Beach', city: 'Diani Beach', country: 'Kenya',
+    feed_url: 'https://www.skylinewebcams.com/en/webcam/kenya/kwale-county/diani-beach/diani-beach.jpg',
+    external_url: 'https://www.skylinewebcams.com/en/webcam/kenya/kwale-county/diani-beach/diani-beach.html',
+    source: 'SkylineWebcams',
   },
-
-  // Kisumu — Western Kenya
   {
-    id: 'ke-kisumu-city-center',
-    lat: -0.0917, lng: 34.7680,
-    name: 'Kisumu City Center', city: 'Kisumu', country: 'Kenya',
-    feed_url: 'https://trafficvision.live/blog/kenya-traffic-cameras',
-    external_url: 'https://trafficvision.live/blog/kenya-traffic-cameras',
-    source: 'TrafficVision',
+    id: 'ke-watamu-beach',
+    lat: -3.3500, lng: 40.0200,
+    name: 'Watamu Beach', city: 'Watamu', country: 'Kenya',
+    feed_url: 'https://www.skylinewebcams.com/en/webcam/kenya/malindi/watamu/watamu-beach.jpg',
+    external_url: 'https://www.skylinewebcams.com/en/webcam/kenya/malindi/watamu/watamu-beach.html',
+    source: 'SkylineWebcams',
   },
 
-  // Nakuru — Rift Valley
+  // ─── Aero Club East Africa — Direct JPG feeds ───
   {
-    id: 'ke-nakuru-highway',
-    lat: -0.3031, lng: 36.0663,
-    name: 'Nakuru Highway (Northern Corridor)', city: 'Nakuru', country: 'Kenya',
-    feed_url: 'https://trafficvision.live/blog/kenya-traffic-cameras',
-    external_url: 'https://trafficvision.live/blog/kenya-traffic-cameras',
-    source: 'TrafficVision / KeNHA',
-  },
-
-  // Aviation / Weather Cams
-  {
-    id: 'ke-nairobi-wilson-airport',
-    lat: -1.3214, lng: 36.8148,
-    name: 'Wilson Airport Surrounds', city: 'Nairobi', country: 'Kenya',
-    feed_url: 'https://webcams.aeroclubea.com',
-    external_url: 'https://webcams.aeroclubea.com',
-    source: 'Aero Club East Africa',
+    id: 'ke-mount-elgon',
+    lat: 1.1000, lng: 34.5500,
+    name: 'Mount Elgon SE', city: 'Mount Elgon', country: 'Kenya',
+    feed_url: 'https://webcams.aeroclubea.com/Western/western_MtElgonSE.jpg',
+    external_url: 'https://trafficvision.live/?continent=Africa&country=Kenya&camera=aeroclubea-mount-elgon',
+    source: 'Aero Club East Africa / TrafficVision',
   },
   {
     id: 'ke-ngong-hills',
-    lat: -1.4013, lng: 36.6541,
-    name: 'Ngong Hills (Weather Feed)', city: 'Kajiado', country: 'Kenya',
-    feed_url: 'https://webcams.aeroclubea.com',
-    external_url: 'https://webcams.aeroclubea.com',
-    source: 'Aero Club East Africa',
+    lat: -1.4000, lng: 36.6500,
+    name: 'Ngong Hills W', city: 'Ngong Hills', country: 'Kenya',
+    feed_url: 'https://webcams.aeroclubea.com/Nairobi/nairobi_ngongHillsW.jpg',
+    external_url: 'https://trafficvision.live/?continent=Africa&country=Kenya&camera=aeroclubea-ngong-hills',
+    source: 'Aero Club East Africa / TrafficVision',
+  },
+  {
+    id: 'ke-nyeri-north',
+    lat: -0.4000, lng: 36.9500,
+    name: 'Nyeri North (Mt Kenya)', city: 'Nyeri', country: 'Kenya',
+    feed_url: 'https://webcams.aeroclubea.com/Mt.Kenya/mtkenya_nyeriN.jpg',
+    external_url: 'https://trafficvision.live/?continent=Africa&country=Kenya&camera=aeroclubea-nyeri-north',
+    source: 'Aero Club East Africa / TrafficVision',
+  },
+  {
+    id: 'ke-machakos',
+    lat: -1.5200, lng: 37.2600,
+    name: 'Machakos SE', city: 'Machakos', country: 'Kenya',
+    feed_url: 'https://webcams.aeroclubea.com/Nairobi/nairobi_machakosSE.jpg',
+    external_url: 'https://trafficvision.live/?continent=Africa&country=Kenya&camera=aeroclubea-machakos',
+    source: 'Aero Club East Africa / TrafficVision',
+  },
+  {
+    id: 'ke-lake-naivasha',
+    lat: -0.7800, lng: 36.3500,
+    name: 'Lake Naivasha NE', city: 'Naivasha', country: 'Kenya',
+    feed_url: 'https://webcams.aeroclubea.com/RiftValley/riftvalley_naivashaNE.jpg',
+    external_url: 'https://trafficvision.live/?continent=Africa&country=Kenya&camera=aeroclubea-lake-naivasha-2',
+    source: 'Aero Club East Africa / TrafficVision',
+  },
+  {
+    id: 'ke-mt-kenya',
+    lat: -0.1500, lng: 37.3000,
+    name: 'Mt Kenya (Nyeri NE)', city: 'Mt Kenya', country: 'Kenya',
+    feed_url: 'https://webcams.aeroclubea.com/Mt.Kenya/mtkenya_nyeriNE065.jpg',
+    external_url: 'https://trafficvision.live/?continent=Africa&country=Kenya&camera=aeroclubea-mt-kenya',
+    source: 'Aero Club East Africa / TrafficVision',
   },
 ];
 
@@ -141,7 +106,7 @@ export async function fetchKenyaCameras(): Promise<CctvCamera[]> {
   const seen = new Set<string>();
   const merged: CctvCamera[] = [];
 
-  for (const cam of KENYA_MANUAL) {
+  for (const cam of KENYA_LIVE_CAMERAS) {
     if (!cam.feed_url && !cam.stream_url && !cam.external_url) continue;
     const key = cameraKey(cam);
     if (seen.has(key)) continue;
