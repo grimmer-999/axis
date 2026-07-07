@@ -1025,8 +1025,108 @@ export default function Dashboard() {
                       <ExternalLink className="w-6 h-6 text-[#39FF14]" />
                     </div>
                     <p className="text-[13px] font-mono font-bold text-white tracking-widest mb-2">EMBED RESTRICTED</p>
-                    <p className="text-[11px] font-mono text-white/50 mb-6 max-w-xs">
-                      {liveFeedName} does not allow third-party embedding. Click below to open the live stream directly.
+                    // Extend the CctvCamera type to include detailed weather and climate data
+                    interface CctvCamera {
+                      id: string;
+                      lat: number;
+                      lng: number;
+                      name: string;
+                      city: string;
+                      country: string;
+                      feed_url?: string;
+                      external_url?: string;
+                      stream_url?: string;
+                      source: string;
+                      weather?: {
+                        temperature: string; // e.g., "25°C"
+                        humidity: string; // e.g., "60%"
+                        condition: string; // e.g., "Sunny", "Cloudy"
+                        windSpeed?: string; // e.g., "15 km/h"
+                        pressure?: string; // e.g., "1015 hPa"
+                      };
+                      climate?: {
+                        region: string; // e.g., "Tropical"
+                        averageRainfall: string; // e.g., "1200mm/year"
+                        averageTemperature: string; // e.g., "22°C"
+                        notableFeatures?: string; // e.g., "Great Rift Valley, Mount Kilimanjaro"
+                      };
+                    }
+                    
+                    // Add more cameras for Kenya and East Africa
+                    const EAST_AFRICA_CAMERAS: CctvCamera[] = [
+                      {
+                        id: 'ke-maasai-mara',
+                        lat: -1.4061,
+                        lng: 35.0085,
+                        name: 'Maasai Mara National Reserve',
+                        city: 'Narok',
+                        country: 'Kenya',
+                        feed_url: 'https://example.com/maasai-mara.jpg',
+                        external_url: 'https://example.com/maasai-mara',
+                        source: 'Wildlife Kenya',
+                        weather: {
+                          temperature: '26°C',
+                          humidity: '50%',
+                          condition: 'Sunny',
+                          windSpeed: '10 km/h',
+                          pressure: '1012 hPa',
+                        },
+                        climate: {
+                          region: 'Savanna',
+                          averageRainfall: '800mm/year',
+                          averageTemperature: '24°C',
+                          notableFeatures: 'Wildlife migration, open grasslands',
+                        },
+                      },
+                      {
+                        id: 'tz-serengeti',
+                        lat: -2.3333,
+                        lng: 34.8333,
+                        name: 'Serengeti National Park',
+                        city: 'Serengeti',
+                        country: 'Tanzania',
+                        feed_url: 'https://example.com/serengeti.jpg',
+                        external_url: 'https://example.com/serengeti',
+                        source: 'Wildlife Tanzania',
+                        weather: {
+                          temperature: '28°C',
+                          humidity: '45%',
+                          condition: 'Partly Cloudy',
+                          windSpeed: '12 km/h',
+                          pressure: '1010 hPa',
+                        },
+                        climate: {
+                          region: 'Savanna',
+                          averageRainfall: '900mm/year',
+                          averageTemperature: '25°C',
+                          notableFeatures: 'Great Migration, vast plains',
+                        },
+                      },
+                      {
+                        id: 'ug-bwindi',
+                        lat: -1.0567,
+                        lng: 29.6033,
+                        name: 'Bwindi Impenetrable Forest',
+                        city: 'Kabale',
+                        country: 'Uganda',
+                        feed_url: 'https://example.com/bwindi.jpg',
+                        external_url: 'https://example.com/bwindi',
+                        source: 'Uganda Wildlife Authority',
+                        weather: {
+                          temperature: '22°C',
+                          humidity: '70%',
+                          condition: 'Rainy',
+                          windSpeed: '8 km/h',
+                          pressure: '1015 hPa',
+                        },
+                        climate: {
+                          region: 'Tropical Rainforest',
+                          averageRainfall: '1500mm/year',
+                          averageTemperature: '20°C',
+                          notableFeatures: 'Mountain gorillas, dense forest',
+                        },
+                      },
+                    ];
                     </p>
                     <a
                       href={getYouTubeWatchUrl(liveFeedUrl)}
