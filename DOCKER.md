@@ -14,7 +14,7 @@ app, and configuring the optional API keys.
 ## 1. Docker Compose (recommended)
 
 ```bash
-git clone https://github.com/simplifaisoul/osiris.git
+git clone 
 cd osiris
 
 # optional: configure keys / scanner backend

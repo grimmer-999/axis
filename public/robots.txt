@@ -1,5 +1,5 @@
 # Osiris Global Intelligence Platform
-# https://osirisai.live
+# https://axis-azure-delta.vercel.app/
 
 User-agent: *
 Allow: /
