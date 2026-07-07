@@ -760,7 +760,7 @@ export default function Dashboard() {
 
 
       {/* ── MAP ── */}
-      <ErrorBoundary name="Map">
+      <ErrorBoundary name="Map" children={undefined}>
         <OsirisMap 
           key={osirisTheme}
           data={data} 
