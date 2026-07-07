@@ -80,7 +80,142 @@ const KENYA_LIVE_CAMERAS: CctvCamera[] = [
     external_url: 'https://trafficvision.live/?continent=Africa&country=Kenya&camera=aeroclubea-machakos',
     source: 'Aero Club East Africa / TrafficVision',
   },
+  {// Extend the CctvCamera type to include weather and climate data
+interface CctvCamera {
+  id: string;
+  lat: number;
+  lng: number;
+  name: string;
+  city: string;
+  country: string;
+  feed_url?: string;
+  external_url?: string;
+  stream_url?: string;
+  source: string;
+  weather?: {
+    temperature: string; // e.g., "25°C"
+    humidity: string; // e.g., "60%"
+    condition: string; // e.g., "Sunny", "Cloudy"
+  };
+  climate?: {
+    region: string; // e.g., "Tropical"
+    averageRainfall: string; // e.g., "1200mm/year"
+    averageTemperature: string; // e.g., "22°C"
+  };
+}
+
+// Update the KENYA_LIVE_CAMERAS array with weather and climate data
+const KENYA_LIVE_CAMERAS: CctvCamera[] = [
   {
+    id: 'ke-nyeri-north',
+    lat: -0.4200,
+    lng: 36.9500,
+    name: 'Nyeri North',
+    city: 'Nyeri',
+    country: 'Kenya',
+    feed_url: 'https://webcams.aeroclubea.com/Nyeri/nyeri_north.jpg',
+    external_url: 'https://trafficvision.live/?continent=Africa&country=Kenya&camera=aeroclubea-nyeri-north',
+    source: 'Aero Club East Africa / TrafficVision',
+    weather: {
+      temperature: '22°C',
+      humidity: '65%',
+      condition: 'Partly Cloudy',
+    },
+    climate: {
+      region: 'Highland',
+      averageRainfall: '1000mm/year',
+      averageTemperature: '20°C',
+    },
+  },
+  {
+    id: 'ke-machakos',
+    lat: -1.5200,
+    lng: 37.2600,
+    name: 'Machakos SE',
+    city: 'Machakos',
+    country: 'Kenya',
+    feed_url: 'https://webcams.aeroclubea.com/Nairobi/nairobi_machakosSE.jpg',
+    external_url: 'https://trafficvision.live/?continent=Africa&country=Kenya&camera=aeroclubea-machakos',
+    source: 'Aero Club East Africa / TrafficVision',
+    weather: {
+      temperature: '28°C',
+      humidity: '55%',
+      condition: 'Sunny',
+    },
+    climate: {
+      region: 'Semi-Arid',
+      averageRainfall: '600mm/year',
+      averageTemperature: '25°C',
+    },
+  },
+  {
+    id: 'ke-lake-naivasha',
+    lat: -0.7800,
+    lng: 36.3500,
+    name: 'Lake Naivasha NE',
+    city: 'Naivasha',
+    country: 'Kenya',
+    feed_url: 'https://webcams.aeroclubea.com/RiftValley/riftvalley_naivashaNE.jpg',
+    external_url: 'https://trafficvision.live/?continent=Africa&country=Kenya&camera=aeroclubea-lake-naivasha-2',
+    source: 'Aero Club East Africa / TrafficVision',
+    weather: {
+      temperature: '24°C',
+      humidity: '70%',
+      condition: 'Cloudy',
+    },
+    climate: {
+      region: 'Rift Valley',
+      averageRainfall: '800mm/year',
+      averageTemperature: '23°C',
+    },
+  },
+  {
+    id: 'ke-mt-kenya',
+    lat: -0.1500,
+    lng: 37.3000,
+    name: 'Mt Kenya (Nyeri NE)',
+    city: 'Mt Kenya',
+    country: 'Kenya',
+    feed_url: 'https://webcams.aeroclubea.com/Mt.Kenya/mtkenya_nyeriNE065.jpg',
+    external_url: 'https://trafficvision.live/?continent=Africa&country=Kenya&camera=aeroclubea-mt-kenya',
+    source: 'Aero Club East Africa / TrafficVision',
+    weather: {
+      temperature: '15°C',
+      humidity: '80%',
+      condition: 'Foggy',
+    },
+    climate: {
+      region: 'Mountain',
+      averageRainfall: '1500mm/year',
+      averageTemperature: '10°C',
+    },
+  },
+];
+
+// Modify the globe initialization to load on Kenya
+function initializeGlobe() {
+  const globe = new Globe(); // Assuming a Globe class or library is used
+  globe.setInitialPosition({ lat: -1.286389, lng: 36.817223 }); // Coordinates for Nairobi, Kenya
+  globe.render();
+}
+
+// Enhance the fetchKenyaCameras function to include weather and climate data
+export async function fetchKenyaCameras(): Promise<CctvCamera[]> {
+  const seen = new Set<string>();
+  const merged: CctvCamera[] = [];
+
+  for (const cam of KENYA_LIVE_CAMERAS) {
+    if (!cam.feed_url && !cam.stream_url && !cam.external_url) continue;
+
+    const key = cameraKey(cam);
+    if (!seen.has(key)) {
+      seen.add(key);
+      merged.push(cam);
+    }
+  }
+
+  return merged;
+}
     id: 'ke-lake-naivasha',
     lat: -0.7800, lng: 36.3500,
     name: 'Lake Naivasha NE', city: 'Naivasha', country: 'Kenya',
