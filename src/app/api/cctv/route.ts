@@ -22,6 +22,8 @@ import { fetchSwitzerlandCameras } from './switzerland';
 import { fetchFinlandCameras } from './finland';
 import { fetchHongKongCameras } from './hongkong';
 import { fetchUtahCameras } from './utah';
+import { fetchKenyaCameras } from './kenya';
+
 
 /**
  * OSIRIS — Worldwide CCTV Camera API v2
@@ -551,5 +553,33 @@ export async function GET(request: Request) {
   } catch (error) {
     console.error('CCTV fetch error:', error);
     return NextResponse.json({ cameras: [], error: 'Failed' }, { status: 500 });
+  }
+}
+// src/app/api/cctv/route.ts
+
+
+
+export async function GET(request: Request) {
+  const { searchParams } = new URL(request.url);
+  const region = searchParams.get('region') || 'all';
+
+  try {
+    const kenya = await fetchKenyaCameras();
+
+    let cameras = [...kenya];
+
+    // Optional: filter by region if you ever want ?region=Kenya
+    if (region !== 'all') {
+      cameras = cameras.filter(
+        (c) =>
+          c.country.toLowerCase() === region.toLowerCase() ||
+          c.id.startsWith(region.toLowerCase())
+      );
+    }
+
+    return NextResponse.json({ cameras });
+  } catch (error) {
+    console.error('[CCTV API] Error:', error);
+    return NextResponse.json({ cameras: [] }, { status: 500 });
   }
 }
