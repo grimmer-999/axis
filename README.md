@@ -1,8 +1,7 @@
 <div align="center">
 
-# ⬡ OSIRIS
 
-### Open Source Intelligence & Reconnaissance Integrated System
+### Open Source Intelligence 
 
 [![Live Demo](https://img.shields.io/badge/osirisai.live-00E5FF?style=for-the-badge&logo=vercel&logoColor=white)](https://osirislive.app)
 [![Support OSIRIS](https://img.shields.io/badge/Support_Project-Patreon-FF424D?style=for-the-badge&logo=patreon&logoColor=white)](https://www.patreon.com/posts/159077425)
@@ -47,7 +46,7 @@ Osiris is a production-grade OSINT platform that provides situational awareness 
 
 ```
 ┌─────────────────────────────────────────────────┐
-│                  OSIRIS CLIENT                   │
+│                                                │
 │  ┌──────────┐  ┌──────────┐  ┌───────────────┐ │
 │  │ MapLibre  │  │  HUD     │  │  RECON Toolkit│ │
 │  │  GL (GPU) │  │ Panels   │  │  Port Scan    │ │
@@ -244,5 +243,4 @@ If you want to help keep the servers alive, and support us to get access to bett
 
 </div>
 #   a x i s  
- #   a x i s  
  
