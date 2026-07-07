@@ -1,3 +1,4 @@
+<div>
 <div align="center">
 
 
@@ -242,5 +243,3 @@ If you want to help keep the servers alive, and support us to get access to bett
 [Join our Discord to be a part of this movement!](https://discord.gg/umBykEpb98)
 
 </div>
-#   a x i s  
- 
