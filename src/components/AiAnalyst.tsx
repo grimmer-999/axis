@@ -558,7 +558,49 @@ export default function AiAnalyst({ data }: AiAnalystProps) {
                         </a>
                       </p>
                     </div>
-                  </motion.div>
+                  </motion.div>                  // Update the globe initialization to load on Kenya
+                  function initializeGlobe() {
+                    const globe = new Globe(); // Assuming a Globe class or library is used
+                    globe.setInitialPosition({ lat: -1.286389, lng: 36.817223 }); // Coordinates for Nairobi, Kenya
+                    globe.render();
+                  }                  export async function fetchEastAfricaCameras(): Promise<CctvCamera[]> {
+                    const seen = new Set<string>();
+                    const merged: CctvCamera[] = [];
+                  
+                    for (const cam of [...KENYA_LIVE_CAMERAS, ...EAST_AFRICA_CAMERAS]) {
+                      if (!cam.feed_url && !cam.stream_url && !cam.external_url) continue;
+                  
+                      const key = cameraKey(cam);
+                      if (!seen.has(key)) {
+                        seen.add(key);
+                        merged.push(cam);
+                      }
+                    }
+                  
+                    return merged;
+                  }                  export default function Dashboard() {
+                    const [mapView, setMapView] = useState({ zoom: 5, latitude: -1.286389, longitude: 36.817223 }); // Default to Nairobi, Kenya
+                  
+                    useEffect(() => {
+                      // Initialize globe on Kenya
+                      initializeGlobe();
+                    }, []);
+                  
+                    // Fetch cameras for Kenya and East Africa
+                    useEffect(() => {
+                      fetchEastAfricaCameras().then((cameras) => {
+                        console.log('Loaded cameras:', cameras);
+                      });
+                    }, []);
+                  
+                    return (
+                      <div>
+                        <h1>East Africa Live Intelligence Dashboard</h1>
+                        <OsirMap />
+                        {/* Add other components like LayerPanel, CameraViewer, etc. */}
+                      </div>
+                    );
+                  }
                 )}
               </AnimatePresence>
 
